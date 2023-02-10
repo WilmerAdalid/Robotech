@@ -1,0 +1,123 @@
+@use "base/mixins"as m;
+@use "base/variables"as v;
+
+.personajes {
+    padding: 5rem 0;
+    background-color: rgba(121, 122, 121, 0.199);
+
+    h2 {
+        text-align: center;
+        font-size: 3.5rem;
+        padding-bottom: 5rem
+    }
+}
+
+.grid-personajes {
+    /*! Container - Movil */
+    @include m.centrado-movil(95%);
+
+    /*! Container - Laptop */
+    @include m.laptop {
+        @include m.centrado-laptop(85%);
+    }
+
+    /*! Container - Desktop */
+    @include m.desktop {
+        @include m.centrado-desktop(90%);
+    }
+
+    display: grid;
+    gap: 3rem;
+}
+
+.grid-personajes {
+    display: grid;
+
+/*! laptop Min:1200px */
+
+@include m.laptop{
+      grid-template-columns: repeat(2, 1fr);
+}
+ 
+}
+
+.personaje-item {
+    display: grid;
+
+    gap: 2rem;
+
+    /*! Table Vertical  Min:768px */
+
+    @include m.table_vertical {
+        grid-template-columns: repeat(1, 1fr 2fr);
+    }
+
+
+}
+
+.personaje-img {
+    // background-color: red;
+    text-align: right;
+    border-radius: 10px;
+    overflow: hidden;
+    // box-shadow: 0 0 5px 1px red;
+    filter: drop-shadow(0 2px 15px rgba(7, 65, 36, 0.7));
+}
+
+// .personaje-content{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+// }
+.nombre-personaje {
+    padding: .5rem 0;
+}
+
+.nombre {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    display: inline-block;
+
+}
+
+.bio {
+    line-height: 1.8;
+}
+
+.centrar {
+    text-align-last: left;
+
+    @include m.after(2rem, .1rem, red) {
+        transition: width 0.8s ease, border 1.6s ease;
+
+        /*! Table Horizontal Min:992px */
+        @include m.table_horizontal {
+            margin-left: 0;
+        }
+    }
+
+    ;
+}
+
+.centrar:hover {
+    @include m.after(100%, 0.1rem, green);
+}
+
+
+
+.uppercasse {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: v.$c-primario;
+    border-radius: 5px;
+    margin-top: 2rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.personaje-content {
+    padding: 1rem;
+    box-shadow: 0px 0px 5px rgb(8, 83, 27);
+    border-radius: 5px;
+}
